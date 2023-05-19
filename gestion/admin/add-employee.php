@@ -27,23 +27,23 @@ if (isset($_POST['submit'])) {
         /*$gender = $db->real_escape_string($_POST['gender']);
         $dob = $db->real_escape_string($_POST['dob']);*/
         $pass = $db->real_escape_string($_POST['pass']);
-        $poste = $db->real_escape_string($_POST['poste']);
+        $poste = $db->real_escape_string($_POST['choix']);
         /*$address = $db->real_escape_string($_POST['address']);
         $bpay = $db->real_escape_string($_POST['bpay']);*/
 
-if ($_POST['choix'] == 'employe'){
-    $sql = "INSERT INTO `employe`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`) 
-    VALUES ('$nom'
-    ,'$prenom','$email','$pass','$phone ','$sexe','$poste')";
-    }elseif($_POST['choix'] == 'chef'){
-        $sql = "INSERT INTO `employe`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`) 
-        VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste')";
+if ($_POST['choix'] != 'admin'){
+    $sql = "INSERT INTO `employe`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
+    VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
+    }
+    elseif( $poste== 'admin'){
+        $sql = "INSERT INTO `utilisateurs`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
+        VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
 
     }
         
        //echo $sql;die;
-        if ($db->query($sql) === true) {
-            echo '<script>alert("Employé ajouté avec succes")</script>';
+        if ($db->query($sql) == true) {
+            echo '<script>alert("Ajout avec succes")</script>';
             //$msg = "Employee added successfully";
         } else {
             $error = "Echec de l'ajout";
@@ -118,16 +118,18 @@ if ($_POST['choix'] == 'employe'){
                             <label for="exampleInputPassword1">Mot de passe</label>
                             <input type="password" name="pass"  class="form-control" id="exampleInputPassword1" placeholder="entrer le mot de passe">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Poste</label>
-                            <input type="text" name="poste"  class="form-control" id="exampleInputPassword1" placeholder="entrer le poste">
-                        </div>
+                       
                         <div class="form-group">
                             <label for="exampleInputEmail1" style="color:black">Choix</label>
                            <select class="form-control" name="choix">
                                 <option value="none">Selectionner</option>
-                                <option value="employe">Employé</option>
-                                 <option value="chef">responsable</option>
+                                <option value="employe">Ouvrier</option>
+                                 <option value="chef">Ingenieur des travaux</option>
+                                 <option value="geniecivil">Ingenieur genie civil</option>
+                                 <option value="topographie">Ingenieur Topographe</option>
+                                 <option value="geotechnique">Ingenieur geotechnique</option>
+                                 <option value="qhse">Ingenieur QHSE</option>
+                                 <option value="admin">aministrateur</option>
                             </select>
                         </div>
                         <div class="form-group" style="float: right">

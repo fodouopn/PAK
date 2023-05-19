@@ -3,7 +3,7 @@
 
 <!doctype html>
 <html lang="en">
-
+<?php  require_once '../admin/src/database.php' ?>
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -56,6 +56,8 @@ function showHint(str) {
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
+    xmlhttp.open("POST", "q=" + str, true);
+    
     xmlhttp.open("GET", "gethint.php?q=" + str, true);
     xmlhttp.send();
   }
@@ -69,8 +71,12 @@ function playAudio() {
   </script>
   <div class="col" style="padding:30px;">
     <h4>RESULTAT SCAN</h4>
-    <div>Nom employee </div><form action="">
-     <input type="text" name="start" class="input" id="result" onkeyup="showHint(this.value)" placeholder="resultat" readonly="" /></form>
+    <div>Nom employee </div><form action="index.php">
+     <input type="text" name="start" class="input" id="result"  
+      onkeyup="showHint(this.value)"
+      placeholder="resultat" readonly="" />
+     </form>
+
      <p>Status: <span id="txtHint"></span></p>
   </div>
   
@@ -79,10 +85,14 @@ function playAudio() {
     
                     </div> 
 </div>
+
 <script type="text/javascript">
 function onScanSuccess(qrCodeMessage) {
     document.getElementById("result").value = qrCodeMessage;
-    showHint(qrCodeMessage);
+    
+    
+  
+  showHint(qrCodeMessage);
 playAudio();
 
 }

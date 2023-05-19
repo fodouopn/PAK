@@ -25,7 +25,7 @@ while ($row = $res->fetch_object()) {
 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
     <a href="#"><strong><span class=""></span> Tache</strong></a>
     <hr>
-    <a href="./add-project.php"><button class="btn btn-primary" type="button">Ajouter une tache</button></a>
+    <a href="./add-project.php"><button class="btn btn-primary" type="button">Ajouter une tache  </button></a> 
     <br>
     <br>
 

@@ -20,13 +20,33 @@ while ($row = $res->fetch_object()) {
 
 
 
+?><?php
+// Connexion à la base de données
+
+// Requête pour récupérer les données de présence des employés
+$query = "SELECT id_emp, SUM(entree_sortie = 2) AS nb_jours_presence FROM horaire GROUP BY id_emp";
+$result = $db->query($query);
+
+
 ?>
+<!-- HTML pour afficher la visualisation de présence -->
+
 
 <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-    <a href="#"><strong><span class=""></span>Présences employé</strong></a>
+    <a href="#"><strong><span class=""></span>Présences employés</strong></a>
     <hr>
 
+    <?php require_once('presence_graphe_admin.php'); 
+?>
+    <div style="position: fixed; top: 0; left: 100;">
+    <img src="presence_graphe_admin.php"  />
+</div>
 
+<div id="graphe-presence">
+
+    <!-- <img src="graphe_presence_survol.php"  />Ici sera affiché le graphe de présence -->
+    
+</div>
     <table class="table table-bordered">
         <thead>
             <th> No</th>
@@ -48,7 +68,7 @@ while ($row = $res->fetch_object()) {
                     $name = $res->fetch_object()->nom;
                     ?>
  
-                    <td><?php echo $name ?></td>
+ <?php echo '<td class="employe" data-nom="' . $attendence->id_emp . '">' . $name . '</td>';?>
                     <td><?php echo $attendence->temps_entree ; ?></td>
                     <td><?php echo $attendence->temps_sortie ; ?></td>
                     <?php $date = new DateTime();
@@ -66,8 +86,7 @@ while ($row = $res->fetch_object()) {
             endforeach ?>
         </tbody>
     </table>
-
-
+    
 
     </div>
     <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
@@ -96,7 +115,8 @@ while ($row = $res->fetch_object()) {
                     $res = $db->query($sql);
                     $name = $res->fetch_object()->nom;
                     ?>
-                    <td><?php echo $name ?></td>
+                    <?php echo '<td class="employe" data-nom="' . $name . '">' . $name . '</td>';?>
+                    
                     <td><?php echo $attendence->temps_entree ; ?></td>
                     <td><?php echo $attendence->temps_sortie ; ?></td>
                     <?php $date = new DateTime();
@@ -116,5 +136,26 @@ while ($row = $res->fetch_object()) {
     </table>-->
 
 </div>
+ 
 
 <?php require_once './footer.php'; ?>
+<!-- JavaScript pour afficher le graphe de présence lorsqu'on survole un nom d'employé -->
+<script>
+// Récupérer tous les éléments de tableau avec la classe "employe"
+var employes = document.getElementsByClassName("employe");
+
+// Ajouter un événement de survol à chaque élément d'employé
+for (var i = 0; i < employes.length; i++) {
+    employes[i].addEventListener("mouseover", function() {
+        var nom = this.getAttribute("data-nom");
+        //var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        //window.open(url, "Graphe de présence de " + nom, "width=800,height=600"); // Ouvrir une nouvelle fenêtre avec le graphe de présence
+    
+        var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        var graphePresence = document.getElementById("graphe-presence");
+        graphePresence.innerHTML = '<img src="' + url + '" alt="Graphe de présence de ' + nom + '">';
+    });
+}
+</script>
+
+    

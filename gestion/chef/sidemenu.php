@@ -26,13 +26,11 @@
 					</ul>
 				</li>-->
 				<li ><a href="./projects-index.php">Taches<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-				<!--<li><a href="./assigned-project-index.php">Assigner une tache<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-				<li><a href="./attendences-index.php">Présence<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
+				<li><a href="./assigned-project-index.php">Assignation des taches<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<!--<li><a href="./attendences-index.php">Présence<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
 				--><li ><a href="./rapport.php">rapport journalier<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				<!--<li ><a href="./engins.php">Engins<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				-->
-				<!--<li><a href="./pay-calculation.php">Pay Calculation<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-				<li><a href="./payslip.php">payslip<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-credit-card"></span></a></li>
 				-->
 
 				 
