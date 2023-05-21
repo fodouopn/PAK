@@ -52,11 +52,11 @@ $graph->xaxis->title->Set("employés");
 $graph->title->Set("Présence des employés");
 
 // Affichage du graphique
-$datetime_to_string = time();
+$get_current_time = time();
 
-$graph_name = "res/img/" . $_SESSION['id'] . "_" . $datetime_to_string . ".png";
+$graph_path_name = "res/img/" . $_SESSION['id'] . "_" . $get_current_time . ".png";
 
-$graph->Stroke($graph_name);
-echo "<img src='" . $graph_name . "' />";
+$graph->Stroke($graph_path_name);
+echo "<img src='" . $graph_path_name . "' />";
 
 ?>
