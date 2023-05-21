@@ -23,9 +23,12 @@ if (isset($_POST['submit'])) {
 
         $tache = $db->real_escape_string($_POST['nom_tache']);
         $detail = $db->real_escape_string($_POST['detail']);
+        $datd = $db->real_escape_string($_POST['date_d']);
+        $datf = $db->real_escape_string($_POST['date_f']);
+        
         $sql = "INSERT INTO tache
-                (nom_tache, Details)
-                values ('$tache','$detail')";
+                (nom_tache, Details,date_d,date_f)
+                values ('$tache','$detail','$datd','$datf')";
                 //echo $sql;die;
         if ($db->query($sql) === true) {
             $msg = "Tache ajouté avec succès";
@@ -81,7 +84,19 @@ echo "<script>window.location.href ='add-project.php'</script>";
                             <input type="text" name="detail" class="form-control"  aria-describedby="emailHelp" placeholder="Entrer le detail">
                         
                            
-                        </div>   
+                        </div> 
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" style="color:black">Date de début</label>
+                            <input type="date" name="date_d" class="form-control"  aria-describedby="emailHelp" placeholder="Entrer la date de début">
+                        
+                           
+                        </div>  
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" style="color:black">Date de fin</label>
+                            <input type="date" name="date_f" class="form-control"  aria-describedby="emailHelp" placeholder="Entrer la date de fin">
+                        
+                           
+                        </div>  
                         <div class="form-group" style="float: right">
                             <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>
                             

@@ -11,7 +11,7 @@ if (isset($_GET['delete'])) {
     $db->query($sql);
 }
 
-$sql = "SELECT * FROM employe";
+$sql = "SELECT * FROM employe where poste != 'chef'";
 $res = $db->query($sql);
 $employees = [];
 while ($row = $res->fetch_object()) {

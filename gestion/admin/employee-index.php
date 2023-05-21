@@ -13,7 +13,7 @@ if (isset($_GET['delete'])) {
 
 if (isset($_GET['delete1'])) {
     $id = $db->real_escape_string($_GET['delete1']);
-    $sql = "DELETE FROM utilisateurs WHERE id = '$id'";
+    $sql = "DELETE FROM utilisateurs WHERE id = '$id'and choix != 'sadmin' ";
     $db->query($sql);
 }
 

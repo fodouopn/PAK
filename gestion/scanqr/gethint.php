@@ -49,7 +49,7 @@ require_once '../admin/src/database.php';
 // lookup all hints from array if $q is different from ""
 if ($q ) {
   $e=date("Y-m-d H:i:s ");
-  $es=date(date("Y").date("-m-").date("d")+1 );
+  $es=date(date("Y").date("m").date("d")+1 );
  
  
   
@@ -108,13 +108,13 @@ if ($num>0){
   //echo 'il existe déja '.$num.' exemplaires';
   
   $mp = $res->fetch_object()->id_hor;
-  echo "$mp";
+  //echo "$mp";
   
   $re="UPDATE `horaire` SET `temps_sortie`=NOW(),`entree_sortie`='2' WHERE  id_emp='$q' and id_hor ='$mp'  ";
   $resu = $db->query($re);
   if ( $db->query($re)  ){
   
-    echo "fin de journée";
+    echo "Départ.......Fin de journée";
   }
 
   
@@ -123,7 +123,7 @@ if ($num>0){
 
   $ret="INSERT INTO  `horaire`(temps_entree,id_emp,entree_sortie) VALUES (NOW(),'$q',1)";
   $resul = $db->query($ret);
-  echo "bonne insertion";
+  echo "Arrivée.... Début de journée";
 }
   
     

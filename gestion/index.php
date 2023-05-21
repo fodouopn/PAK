@@ -9,7 +9,7 @@
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="0" class=""></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
   </ol>
@@ -18,27 +18,27 @@
       <img class="first-slide" src="./resources/images/mon.jpg" alt="First slide">
       <div class="container">
         <div class="carousel-caption text-left">
-          <h1>LMC</h1>
+          <h1>CSSI</h1>
           <p>Application de Gestion</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">inscrivez-vous</a></p>
         </div>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="second-slide" src="./resources/images/rtt.jpg" alt="Second slide">
+      <img class="second-slide" src="./resources/images/mon.jpg" alt="Second slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>LMC</h1>
+          <h1>CSSI</h1>
           <p>Marking des présences par Qrcodes</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">inscrivez-vous</a></p>
         </div>
       </div>
     </div>
     <div class="carousel-item">
-      <img class="third-slide" src="./resources/images/tel.jpg" alt="Third slide">
+      <img class="third-slide" src="./resources/images/mon.jpg" alt="Third slide">
       <div class="container">
         <div class="carousel-caption text-right">
-          <h1>LMC</h1>
+          <h1>CSSI</h1>
           <p>Controle des entrés - sorties</p>
           <p><a class="btn btn-lg btn-primary" href="#" role="button">inscrivez-vous</a></p>
         </div>
