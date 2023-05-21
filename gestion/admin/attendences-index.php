@@ -138,7 +138,7 @@ $result = $db->query($query);
 </div>
  
 
-<?php require_once './footer.php'; ?>
+<?php // require_once './footer.php'; ?>
 <!-- JavaScript pour afficher le graphe de présence lorsqu'on survole un nom d'employé -->
 <script>
 // Récupérer tous les éléments de tableau avec la classe "employe"

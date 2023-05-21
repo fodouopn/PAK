@@ -1,0 +1,8 @@
+- First, take a backup of current database:
+> mysqldump -u root -p old_db > old_db.sql 
+-----------------------------------------------------------------------
+- Then create a new database with the desired name in the MySQL server.
+> mysqladmin -u root -p create new_db 
+-----------------------------------------------------------------------
+- Finally restore the backup taken above to the newly created database.
+> mysql -u root -p new_db < old_db.sql 

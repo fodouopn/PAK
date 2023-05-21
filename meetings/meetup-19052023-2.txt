@@ -1,0 +1,12 @@
+RAPPORT : [PAK PROJECT] - DISCOVERY AND TASKS PLANIFICATION OF APPLICATION du 19/05/2023 
+
+Decouverte et planification de perspectives
+
+Resolutions : 
+
+1 - Correction de l'erreur au chargement de la page presence pour un utilisateur
+2 - Evaluation des eventuelles erreur a notifier avant correction
+3 - Affichage du graphe de presence utilisateur par survol de la souris sur son nom dans le tableau listant les noms du personnel
+4 - Collection des points d'amelioration de l'ergonomie
+
+Delais dimanche 19/05/2023: 21h
