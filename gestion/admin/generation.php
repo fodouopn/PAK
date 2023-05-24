@@ -13,11 +13,11 @@ if ($_SESSION['poste'] != 'admin') {
 
 if (isset($_GET['delete'])) {
     $id = $db->real_escape_string($_GET['delete']);
-    $sql = "DELETE FROM qrcode WHERE id_emp = '$id'";
+    $sql = "UPDATE qrcode SET deleted_yn = true  WHERE id_emp = '$id'";
     $db->query($sql);
 
 }
-$sql1 = "SELECT * FROM qrcode";
+$sql1 = "SELECT * FROM qrcode WHERE deleted_yn = false";
 $res = $db->query($sql1);
 $rap = [];
 while ($row = $res->fetch_object()) {
@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
 
 
     $qrid = $_POST['email'];
-    $sql5 = "SELECT * FROM employe where mail ='$qrid'";
+    $sql5 = "SELECT * FROM employe where mail ='$qrid' AND deleted_yn = false";
 $res = $db->query($sql5);
 $i = $res->fetch_object()->id;
     //$p=$re->qr;

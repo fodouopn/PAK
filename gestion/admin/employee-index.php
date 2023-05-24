@@ -7,24 +7,27 @@ require_once './src/database.php';
 /* Delete paper */
 if (isset($_GET['delete'])) {
     $id = $db->real_escape_string($_GET['delete']);
-    $sql = "DELETE FROM employe WHERE id = '$id'";
+    var_dump($_GET['delete']);
+    // $sql = "DELETE FROM employe WHERE id = '$id'";
+    $sql = "UPDATE employe SET deleted_yn = true WHERE id = '$id'";
     $db->query($sql);
 }
 
 if (isset($_GET['delete1'])) {
     $id = $db->real_escape_string($_GET['delete1']);
-    $sql = "DELETE FROM utilisateurs WHERE id = '$id'and choix != 'sadmin' ";
+    // $sql = "DELETE FROM utilisateurs WHERE id = '$id'and choix != 'sadmin' ";
+    $sql = "UPDATE utilisateurs SET deleted_yn = true WHERE id = '$id'and choix != 'sadmin' ";
     $db->query($sql);
 }
 
-$sql = "SELECT * FROM employe ";
+$sql = "SELECT * FROM employe WHERE deleted_yn = false";
 $res = $db->query($sql);
 $employees = [];
 while ($row = $res->fetch_object()) {
     $employees[] = $row;
 }
 
-$sql = "SELECT * FROM utilisateurs where poste != 'admin' ";
+$sql = "SELECT * FROM utilisateurs where poste != 'admin' AND deleted_yn = false";
 $res = $db->query($sql);
 $employe = [];
 while ($row = $res->fetch_object()) {
