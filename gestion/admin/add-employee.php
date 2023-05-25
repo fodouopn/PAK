@@ -19,35 +19,49 @@ if (isset($_POST['submit'])) {
     
    
 
-        $nom = $db->real_escape_string($_POST['nom']);
-        $prenom = $db->real_escape_string($_POST['prenom']);
-        $sexe = $db->real_escape_string($_POST['sexe']);
-        $email = $db->real_escape_string($_POST['email']);
-        $phone = $db->real_escape_string($_POST['phone']);
-        /*$gender = $db->real_escape_string($_POST['gender']);
-        $dob = $db->real_escape_string($_POST['dob']);*/
-        $pass = $db->real_escape_string($_POST['pass']);
-        $poste = $db->real_escape_string($_POST['choix']);
-        /*$address = $db->real_escape_string($_POST['address']);
-        $bpay = $db->real_escape_string($_POST['bpay']);*/
+    $nom = $db->real_escape_string($_POST['nom']);
+    $prenom = $db->real_escape_string($_POST['prenom']);
+    $sexe = $db->real_escape_string($_POST['sexe']);
+    $email = $db->real_escape_string($_POST['email']);
+    $phone = $db->real_escape_string($_POST['phone']);
+    /*$gender = $db->real_escape_string($_POST['gender']);
+    $dob = $db->real_escape_string($_POST['dob']);*/
+    $pass = $db->real_escape_string($_POST['pass']);
+    $pass_confirm = $db->real_escape_string($_POST['pass_confirm']);
+    $poste = $db->real_escape_string($_POST['choix']);
+    /*$address = $db->real_escape_string($_POST['address']);
+    $bpay = $db->real_escape_string($_POST['bpay']);*/
 
-if ($_POST['choix'] != 'admin'){
-    $sql = "INSERT INTO `employe`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
-    VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
-    }
-    elseif( $poste== 'admin'){
-        $sql = "INSERT INTO `utilisateurs`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
-        VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
-
-    }
+    if($pass != $pass_confirm){
+        $error =  "Les mots de passe ne sont pas identiques";
+    }else{
         
-       //echo $sql;die;
-        if ($db->query($sql) == true) {
-            echo '<script>alert("Ajout avec succes")</script>';
-            //$msg = "Employee added successfully";
-        } else {
-            $error = "Echec de l'ajout";
+        if(empty($nom) || empty($prenom) || empty($sexe) || empty($email) || empty($phone) || empty($pass) || empty($poste)){
+            $error =  "Tous les champs sont obligatoires";
+        }else{
+            
+            if ($_POST['choix'] != 'admin'){
+                $sql = "INSERT INTO `employe`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
+                VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
+            }
+            elseif( $poste == 'admin'){
+                $sql = "INSERT INTO `utilisateurs`( `nom`, `prenom`, `mail`, `pass`, `numero`, `sexe`, `poste`,`choix`) 
+                VALUES ('$nom','$prenom','$email','$pass','$phone ','$sexe','$poste','$poste')";
+        
+            }
+                
+            //echo $sql;die;
+            if ($db->query($sql) == true) {
+                // echo '<script>alert("Ajout avec succes")</script>';
+                $msg = "Employé ajouté avec succès";
+            } else {
+        
+                $error = "Une erreur est survenue lors de l'enregistrement. Le compte utilisateur est peut-etre existant, veuiller verifier";
+            }
         }
+    }
+
+
     
 }
 
@@ -89,43 +103,37 @@ if ($_POST['choix'] != 'admin'){
                         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                             <div  class="row">
 
-                        
                                 <input type="hidden" name="id" value="<?php echo $id ?>">
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputEmail1" style="color:black">Nom</label>
-                                    <input type="text" name="nom" class="form-control"  aria-describedby="emailHelp" placeholder="Entrer le nom">
+                                    <input type="text" name="nom" value="<?php if (isset($error)) echo $nom;?>" class="form-control"  aria-describedby="emailHelp" placeholder="Entrer le nom">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputPassword1"> Prenom</label>
-                                    <input type="textarea" name="prenom"  class="form-control" id="exampleInputPassword1" placeholder="entrer le prenom">
+                                    <input type="textarea" name="prenom"  value="<?php if (isset($error)) echo $prenom;?>" class="form-control" id="exampleInputPassword1" placeholder="entrer le prenom">
                                 </div>
                                 
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputPassword1">Email</label>
-                                    <input type="textarea" name="email" class="form-control" id="exampleInputPassword1" placeholder="entrer l'email">
+                                    <input type="textarea" name="email" value="<?php if (isset($error)) echo $email;?>" class="form-control" id="exampleInputPassword1" placeholder="entrer l'email">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputPassword1">Numero</label>
-                                    <input type="text" name="phone"  class="form-control" id="exampleInputPassword1" placeholder="entrer le numero">
+                                    <input type="text" name="phone"  value="<?php if (isset($error)) echo $phone;?>" class="form-control" id="exampleInputPassword1" placeholder="entrer le numero">
                                 </div>
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputEmail1" style="color:black">sexe</label>
-                                <select class="form-control" name="sexe">
-                                        <option value="none">SELECT</option>
-                                        <option value="Homme">Homme</option>
-                                        <option value="Femme">Femme</option>
+                                    <select class="form-control" name="sexe">
+                                        <!-- <option value="none">Sélectionner</option> -->
+                                        <option value="Homme" <?php if (isset($error) && $poste == "Homme") echo "selected";?>>Homme</option>
+                                        <option value="Femme" <?php if (isset($error) && $poste == "Femme") echo "selected";?>>Femme</option>
                                     </select>
-                                </div>
-                                
-                                <div class="form-group col-md-6 col-sm-12 col-xs-12">
-                                    <label for="exampleInputPassword1">Mot de passe</label>
-                                    <input type="password" name="pass"  class="form-control" id="exampleInputPassword1" placeholder="entrer le mot de passe">
                                 </div>
                             
                                 <div class="form-group col-md-6 col-sm-12 col-xs-12">
                                     <label for="exampleInputEmail1" style="color:black">Choix</label>
-                                <select class="form-control" name="choix">
-                                        <option value="none">Selectionner</option>
+                                    <select class="form-control" name="choix" selected="<?php if (isset($error)) echo $poste;?>">
+                                        <!-- <option value="none">Sélectionner</option> -->
                                         <option value="employe">Ouvrier</option>
                                         <option value="chef">Ingenieur des travaux</option>
                                         <option value="geniecivil">Ingenieur genie civil</option>
@@ -135,7 +143,14 @@ if ($_POST['choix'] != 'admin'){
                                         <option value="admin">aministrateur</option>
                                     </select>
                                 </div>
-                                
+                                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                                    <label for="exampleInputPassword1">Mot de passe</label>
+                                    <input type="password" name="pass"  class="form-control" id="exampleInputPassword1" placeholder="entrer le mot de passe">
+                                </div>
+                                <div class="form-group col-md-6 col-sm-12 col-xs-12">
+                                    <label for="exampleInputPassword2">Confirmer le mot de passe</label>
+                                    <input type="password" name="pass_confirm"  class="form-control" id="exampleInputPassword2" placeholder="confirmer le mot de passe">
+                                </div>
                             </div>
                             <div class="row">
                                 <hr>
@@ -146,7 +161,6 @@ if ($_POST['choix'] != 'admin'){
                                     <button type="submit" name="submit" class="btn btn-primary" style="width:100%">Envoyer</button>
                                 </div>
                             </div>
-    
     
                         </form>
                     </div>
