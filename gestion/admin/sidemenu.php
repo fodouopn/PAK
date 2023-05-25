@@ -12,8 +12,8 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-			<li ><a href="./employee-index.php">Employés<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-			<!--
+				<li ><a href="./employee-index.php">Employés<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<!--
 				<li ><a href="./projects-index.php">Taches<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				--><li><a href="./assigned-project-index.php">Tache et Assignation<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				<li><a href="./attendences-index.php">Présence<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
@@ -40,7 +40,7 @@
 		</div>
 	</div>
 </nav>
-<div class="main">
+<!-- <div class="main"> -->
 	<!-- Content Here -->
-</div>
+<!-- </div> -->
 <!-- /Side nav-->
