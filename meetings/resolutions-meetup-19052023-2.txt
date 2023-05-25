@@ -1,0 +1,64 @@
+RAPPORT : [PAK PROJECT] - DISCOVERY AND TASKS PLANIFICATION OF APPLICATION du 19/05/2023 
+
+Decouverte et planification de perspectives
+
+Resolutions : 
+
+1 - Correction de l'erreur au chargement de la page presence pour un utilisateur - OK
+
+2 - Evaluation des eventuelles erreur a notifier avant correction - OK
+
+3 - Affichage du graphe de presence utilisateur par survol de la souris sur son nom dans le tableau listant les noms du personnel
+
+4 - Collection des points d'amelioration de l'ergonomie - TOUTES LES VUES SONT A AMELIORER
+
+Delais dimanche 19/05/2023: 21h
+
+------------------------------------------------------------------------------------------------
+DIFFICULTES : Distinguer le compte a utiliser pour se connecter
+------------------------------------------------------------------------------------------------
+
+Evaluation des resolutions
+
+--- Profil admin
+
+- Page employee-index.php (gestion/admin/employee-index.php)
+> Un admin ne peut pas ajouter un admin (L'ajout n'est pas visible dans la liste des employes ou responsable) Comment identifier les comptes administrateurs dans l'application
+> Une erreur lors de l'ajout d'un compte ayant deja un meme email
+> En cas de restauration de la base de donnees, le compte prealablement connecte peut continuer a travailler
+> Une boite de dialogue (alert) s'ouvre, imposant le clic sur OK pour redirection vers la page add-employee.php
+> Le hard delete n'est pas recommande dans les applications, car des donnees pourraient etre liees et creer ainsi des erreurs d'absence de cle secondaire
+> Un exemple de suppression d'un employe genere l'erreur dans la vue de presence (rendant non fonctionnel le menu deroulant *rapport*)
+> Meme erreur dans la vue de generation du qr code, a cause de la suppression du compte
+
+- Page Tache et assignation (gestion/admin/assigned-project-index.php)
+> Nous devons avoir 2 ecrans differents. 1 pour la creation des taches, un autre pour l'assignation des taches au responsable et on doit pouvoir voir qui a assigne ladite tache
+> Le statut des taches peut etre marqué par des badges (en couleur distincte)
+> Les taches doivent pouvoir se creer par departement et seul dans un departement donnee, ladite tache peut etre assignées
+> 
+
+- Page rapport/rapport ingenieur des travaux (gestion/admin/rapport.php)
+> On doit visualer la liste des rapports avec les responsable des rapports en question et si necessaire le superviseur du rapporteur
+
+- Page rapport (gestion/admin/rapporting.php)
+> Apres ajout d'un reporting, on est redirige vers la page rapport d'ingenieur de travaux
+> 
+
+- Page Engins (gestion/admin/engins.php)
+> Il est possible d'ajouter un materiel sans preciser son modele ni son etat etc
+> La validation du formulaire de creation donne lieu et place a un ecran blanc avec une boite de dialogue alert sur lequel il faut imperativement cliquer pour charger de nouveau la page
+
+- Page generer qr code (gestion/admin/generation.php)
+> On peut generer un qr code sans indiquer l'adresse email
+> Qu'en est - il en cas de suppression des qr codes ?
+
+
+- Page appreciation des travaux (/gestion/admin/notation.php)
+> Les notes d'appreciations sont visualisees ou et par qui ?
+> Le formulaire est a ameliorer
+
+
+-- Profil chef
+- Page Taches
+> une fois une tache cree, elle n'est pas modifiable
+> 

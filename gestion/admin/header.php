@@ -13,10 +13,11 @@ if (!isset($_SESSION['mail']) || !isset($_SESSION['nom']) || !isset($_SESSION['p
 <head>
     <title>Logiciel de Management de chantier</title>
 
-    <link rel="stylesheet" href="./res/css/bootstrap.min.css">
+    <link rel="stylesheet" href="res/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="./res/css/font-awesome.css">
-    <link href="./res/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="res/css/property_style.css">
+    <link rel="stylesheet" type="text/css" href="res/css/font-awesome.css">
+    <link href="res/css/style.css" type="text/css" rel="stylesheet">
 </head>
  
 <body>
@@ -32,8 +33,8 @@ if (!isset($_SESSION['mail']) || !isset($_SESSION['nom']) || !isset($_SESSION['p
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                <li>
-                         <a role="button"><i class=""></i>Poste </a>
+                    <li>
+                        <a role="button"><i class=""></i>Poste </a>
                         <span style="color: lightskyblue"><?php echo $_SESSION['poste'] ?></span>
                     </li>
                     <li>
