@@ -136,7 +136,6 @@ $result = $db->query($query);
     <br>
     </div>
 </div>
- 
 
 <?php // require_once './footer.php'; ?>
 <!-- JavaScript pour afficher le graphe de présence lorsqu'on survole un nom d'employé -->
@@ -146,15 +145,15 @@ var employes = document.getElementsByClassName("employe");
 
 // Ajouter un événement de survol à chaque élément d'employé
 for (var i = 0; i < employes.length; i++) {
-    employes[i].addEventListener("mouseover", function() {
+    employes[i].addEventListener("click", function() {
         var nom = this.getAttribute("data-nom");
-        //var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
         //window.open(url, "Graphe de présence de " + nom, "width=800,height=600"); // Ouvrir une nouvelle fenêtre avec le graphe de présence
     
-        var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        /*var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
         var graphePresence = document.getElementById("graphe-presence");
-        graphePresence.innerHTML = '<img src="' + url + '" alt="Graphe de présence de ' + nom + '">';
-    });
+        graphePresence.innerHTML = '<img   src="' + url + '" alt="Graphe de présence de ' + nom + '">';
+    */});
 }
 </script>
 

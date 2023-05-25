@@ -14,7 +14,8 @@ require_once './src/database.php';
 if ($db->connect_error) {
     die("Connection failed: " . $db->connect_error);
 }
-$t=$_GET['id_emp'];
+
+$t = $_GET['id_employee'];
 // Récupération des données de la table presence
 $sql = "SELECT id_emp, SUM(CASE WHEN entree_sortie = 2 THEN 1 ELSE 0 END) AS nb_jours_presence FROM horaire where $t=id_emp ";
 $result = $db->query($sql);
@@ -46,6 +47,7 @@ $graph->Add($barplot);
 // Personnalisation des axes et des titres
 $graph->xaxis->SetTickLabels($datax);
 $graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,10);
+
 $graph->xaxis->SetLabelAngle(90);
 $graph->yaxis->title->Set("Nombre de jours de présence");
 $graph->xaxis->title->Set("employé");
@@ -53,9 +55,12 @@ $graph->title->Set("Présence de employé");
 
 // Affichage du graphique
 //$graph->Stroke();
-$graph->Stroke("graph.png");
-echo "<img src='graph.png' />";
-graph->render();
+$graph->Stroke("graph1.png");
+echo "<img src='graph1.png' />";
+//graph->render();
+// Enregistrer le graphe dans un fichier
+
+
 
 ?>
 
