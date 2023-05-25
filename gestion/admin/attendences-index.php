@@ -44,7 +44,7 @@ $result = $db->query($query);
 
 <div id="graphe-presence">
 
-    <!-- <img src="graphe_presence_survol.php"  />Ici sera affiché le graphe de présence -->
+    <img src="graphe_presence_survol.php"  /><!--  sera affiché le graphe de présence -->
     
 </div>
     <table class="table table-bordered">
@@ -69,7 +69,7 @@ $result = $db->query($query);
                     ?>
  
  <?php echo '<td class="employe" data-nom="' . $attendence->id_emp . '">' . $name . '</td>';?>
-                    <td><?php echo $attendence->temps_entree ; ?></td>
+ <td><?php echo $attendence->temps_entree ; ?></td>
                     <td><?php echo $attendence->temps_sortie ; ?></td>
                     <?php $date = new DateTime();
                     $d = $date->format($attendence->date);
@@ -88,54 +88,6 @@ $result = $db->query($query);
     </table>
     
 
-    </div>
-    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-    </br>
-</br>
-    <!--<a href="#"><strong><span class=""></span>Présences chef-chantier</strong></a>
-    <hr>
-    <table class="table table-bordered">
-        <thead>
-            <th> No</th>
-            <th>Nom de l"employé</th>
-            <th>Arrivée</th>
-            <th>Départ</th>
-            <th>Date</th>
-            <th>Statut</th>
-
-
-        </thead>
-        <tbody>
-            <?php $i = 0;
-            foreach ($pres as $attenden) : ?>
-                <tr>
-                    <td><?php echo $i + 1 ?></td>
-                    <?php $sql = "SELECT * FROM utilisateurs WHERE id = '$attenden->id_emp'";
-
-                    $res = $db->query($sql);
-                    $name = $res->fetch_object()->nom;
-                    ?>
-                    <?php echo '<td class="employe" data-nom="' . $name . '">' . $name . '</td>';?>
-                    
-                    <td><?php echo $attendence->temps_entree ; ?></td>
-                    <td><?php echo $attendence->temps_sortie ; ?></td>
-                    <?php $date = new DateTime();
-                    $d = $date->format($attenden->date);
-                    ?>
-                    <td><?php echo $d ?></td>
-                    <?php if ($attenden->date) : ?>
-                        <td><span class="badge badge-danger"><?php echo "présent" ?></span></td>
-                    <?php else : ?>
-                        <td><span class="badge badge-danger"><?php echo "Absent" ?></span></td>
-                    <?php endif ?>
-
-                </tr>
-            <?php $i++;
-            endforeach ?>
-        </tbody>
-    </table>-->
-
-</div>
  
 
 <?php require_once './footer.php'; ?>
@@ -146,15 +98,15 @@ var employes = document.getElementsByClassName("employe");
 
 // Ajouter un événement de survol à chaque élément d'employé
 for (var i = 0; i < employes.length; i++) {
-    employes[i].addEventListener("mouseover", function() {
+    employes[i].addEventListener("click", function() {
         var nom = this.getAttribute("data-nom");
-        //var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
         //window.open(url, "Graphe de présence de " + nom, "width=800,height=600"); // Ouvrir une nouvelle fenêtre avec le graphe de présence
     
-        var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
+        /*var url = "graphe_presence_survol.php?id_emp=" + nom; // URL vers le script PHP qui génère le graphe de présence
         var graphePresence = document.getElementById("graphe-presence");
-        graphePresence.innerHTML = '<img src="' + url + '" alt="Graphe de présence de ' + nom + '">';
-    });
+        graphePresence.innerHTML = '<img   src="' + url + '" alt="Graphe de présence de ' + nom + '">';
+    */});
 }
 </script>
 
