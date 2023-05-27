@@ -9,7 +9,7 @@ if (!isset($_SESSION['mail']) || !isset($_SESSION['nom']) || !isset($_SESSION['p
 ?>
 <!doctype html>
 <html lang="en">
-
+ 
 <head>
     <title>Logiciel de Management de chantier</title>
 

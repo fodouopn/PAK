@@ -17,8 +17,9 @@ if (!isset($_SESSION['mail']) || !isset($_SESSION['nom']) || !isset($_SESSION['p
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./res/css/font-awesome.css">
     <link href="./res/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="res/css/property_style.css">
 </head>
- 
+
 <body>
     <div id="top-nav" class="navbar navbar-inverse navbar-static-top" style="background-color:">
         <div class="container-fluid">

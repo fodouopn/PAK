@@ -23,7 +23,7 @@ if (isset($_GET['delete'])) {
     
     if($et == $m){
         $id = $db->real_escape_string($_GET['delete']);
-        $sql = "DELETE FROM rapport_jour WHERE id = '$id'";
+        $sql = "UPDATE rapport_jour SET deleted_yn =true WHERE id = '$id'";
         $db->query($sql);
         echo '<script>alert("Rapport supprimé avec succès")</script>';
         echo "<script>window.location.href ='rapport.php'</script>";
@@ -42,7 +42,7 @@ if (isset($_GET['delete'])) {
    
 }
 $ur=$_SESSION['id'];
-$sql1 = "SELECT * FROM rapport_jour where id_chef = $ur";
+$sql1 = "SELECT * FROM rapport_jour where id_chef = $ur and deleted_yn =false";
 $res = $db->query($sql1);
 $rap = [];
 while ($row = $res->fetch_object()) {
@@ -75,44 +75,18 @@ if (isset($_POST['submit'])) {
     
 ?>
 
-<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-   <span class=""> <a href=""><strong></span> Rapport </strong></a>
+<span class=""> <a href=""><strong></span> Rapport journalier</strong></a>
+<div class="main">
+    <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;padding-top:20px">
+        <div class="card-body">
+        <span class=""> <strong> Dépot de rapport</span> </strong>
     <hr>
-
-
-</div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-lg-4" style="margin-left: 100px">
-            <div class="card">
-                
-
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $id ?>">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" style="color:black">Rapport</label>
+                            <label for="exampleInputEmail1" style="color:black">Information(s) Relative(s)</label>
                             <input type="textarea" name="rapport" class="form-control"  placeholder="Entrer le Détail">
                         </div>
-                        <!--<div class="form-group">
-                            <label for="exampleInputPassword1">Paper name</label>
-                            <input type="textarea" name="paper-name" value="" class="form-control"
-                                id="exampleInputPassword1" placeholder="enter paper name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Year</label>
-                            <input type="textarea" name="year" value="" class="form-control" id="exampleInputPassword1"
-                                placeholder="enter year">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Degree</label>
-                            <input type="textarea" name="degree" value="" class="form-control"
-                                id="exampleInputPassword1" placeholder="enter degree">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Scanned paper</label>
-                            <input type="file" name="image-file" value="" class="form-control"
-                                id="exampleInputPassword1">
-                        </div>-->
                         <input type="file" name="files" id="files"  required/>
                         <div class="form-group" style="float: right">
                             <button type="submit" name="submit" class="btn btn-primary">Envoyer</button>
@@ -122,13 +96,20 @@ if (isset($_POST['submit'])) {
 
                     </form>
 
+                    </div>
+</br>
+</br>
+                    </div>
+                    </br>
 
-                    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+    <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;padding-top:20px">
+        <div class="card-body">
+       
    <span class=""> <strong> Liste des rapports</span> </strong>
     <hr>
 
 
-</div>
+
                     <table class="table table-bordered" name="cool">
         <thead>
             <th>No</th>
@@ -166,10 +147,10 @@ if (isset($_POST['submit'])) {
     </table>
     
                 </div>
+            </br>
             </div>
         </div>
-    </div>
-</div>
+   
 
 <script>
 function CallPrint(strid) {

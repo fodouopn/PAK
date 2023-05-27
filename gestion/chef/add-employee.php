@@ -3,7 +3,7 @@ require_once './src/database.php';
 require_once './header.php';
 require_once './sidemenu.php';
 
-if ($_SESSION['poste'] != 'chef' or $_SESSION['poste'] != 'chef' ) {
+if ($_SESSION['poste'] != 'ingenieur des travaux' ) {
     header('Location:./dashboard.php');
     exit;
 }

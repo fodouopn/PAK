@@ -24,7 +24,7 @@
                               {
                                 
                                   $fileNameNew=uniqid('',true).".".$fileActualExt;
-                                  $fileDestination='files_upload/'.$fileNameNew ;
+                                  $fileDestination='../files_upload/'.$fileNameNew ;
                                   move_uploaded_file($fileTmpName,$fileDestination);
                                   //$query = "INSERT into `utilisateur` (`namefile`, `file_url`) VALUES ('$fileName', '$fileDestination')";
                                   /*
@@ -33,8 +33,7 @@
                                   $query=" UPDATE `users` SET `namefile`='$fileName',`file_url`='$fileDestination'WHERE email='$mail'";
                                  */
        
-                                  $sql =  "UPDATE `rapport_jour` 
-                                  SET `fichier`='$fileDestination',`nom`='$fileName' WHERE rapport = '$rapport' ";
+                                  $sql =  "UPDATE `rapport_jour` SET `fichier`='$fileDestination',`nom`='$fileName' WHERE rapport = '$rapport' ";
         
                                              // Exécuter la requête sur la base de données
       

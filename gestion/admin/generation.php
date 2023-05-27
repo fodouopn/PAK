@@ -73,17 +73,16 @@ echo '<img src = "../' .$filepath. '" />' ;
     }
 
 
-
+ 
 
 
 ?>
 <div class="main">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
        <span class=""> <a href=""><strong></span> QRCODE </strong></a>
-        <hr>
-    
-        
+        <hr> 
     </div>
+     
     <!-- <div class="container-fluid"> -->
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -101,7 +100,7 @@ echo '<img src = "../' .$filepath. '" />' ;
                         </div>
 
                     </form>
-
+  
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                             <hr>
@@ -147,7 +146,6 @@ echo '<img src = "../' .$filepath. '" />' ;
                                             ?>
                                         <td><?php echo $post?></td>
                                         <td><?php echo $e->qr?></td>
-                                        
                                         <td>
                                         <a href="?edit=<?php echo $e->id ?>" class="btn btn-info" OnClick="CallPrint(this.value)" >Voir</a>
                                         </td>

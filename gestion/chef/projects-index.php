@@ -22,13 +22,15 @@ while ($row = $res->fetch_object()) {
 
 ?>
 
-<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-    <a href="#"><strong><span class=""></span> Tache</strong></a>
-    <hr>
-    <a href="./add-project.php"><button class="btn btn-primary" type="button">Ajouter une tache  </button></a> 
-    <br>
-    <br>
-
+<div class="main">
+    <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;padding-top:20px">
+        <div class="card-body">
+        <a href="#"><strong><span class=""></span> Tache</strong></a>
+        <hr>
+        <a href="./add-project.php"><button class="btn btn-primary" type="button">Ajouter une tache  </button></a> 
+        <br>
+        <br>
+    
     <table class="table table-bordered">
         <thead>
             <th> No</th>
@@ -59,6 +61,10 @@ while ($row = $res->fetch_object()) {
             <?php $i++; endforeach ?>
         </tbody>
     </table>
+            
+        </div>
+        </br>
+    </div>
 </div>
 
 <?php require_once './footer.php'; ?>

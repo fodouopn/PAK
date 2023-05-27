@@ -24,10 +24,10 @@
 					</ul>
 				</li>
 			<li class="active"><a href="./projects-index.php">Projects<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon "></span></a></li>
-			--><li class="active" ><a href="./attendance.php">Présences<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
+			--><li ><a href="./attendance.php">Présences<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-calendar"></span></a></li>
 				
 			
-			<li class="active"><a href="./rapport.php">RAPPORT<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+			<li ><a href="./rapport.php">RAPPORT<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				
 				
 				

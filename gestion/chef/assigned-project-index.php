@@ -7,11 +7,11 @@ require_once './src/database.php';
 
 if (isset($_GET['delete'])) {
     $id = $db->real_escape_string($_GET['delete']);
-    $sql = "DELETE FROM assignation WHERE id = '$id'";
+    $sql = "UPDATE  assignation SET deleted_yn = true WHERE id = '$id'";
     $db->query($sql);
 }
 
-$sql = "SELECT * FROM assignation";
+$sql = "SELECT * FROM assignation WHERE deleted_yn =false";
 $res = $db->query($sql);
 $as = [];
 while ($row = $res->fetch_object()) {
@@ -23,7 +23,8 @@ while ($row = $res->fetch_object()) {
 
 ?>
 <div class="main">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;padding-top:20px">
+        <div class="card-body">
         
         <a href="#"><strong><span class="fa fa-dashboard"></span>tache assignée</strong></a>
         <hr>
@@ -85,6 +86,8 @@ while ($row = $res->fetch_object()) {
                 <?php $i++;endforeach ?>
             </tbody>
         </table>
+        </div>
+                </br>
     </div>
 </div>
 

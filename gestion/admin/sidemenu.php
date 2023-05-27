@@ -22,8 +22,8 @@
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">Rapport<span ></span><span style="font-size:16px;" class="caret"></span></a>
 					<ul class="dropdown-menu forAnimate" role="menu">
-						<li ><a href="./rapport.php"> rapport Ingenieur des travaux </a></li>
-						<li ><a href="./rapporting.php">reporting</a></li>
+						<li ><a href="./rapport.php"> rapports des Ingenieurs </a></li>
+						<li ><a href="./rapporting.php">Observation des travaux</a></li>
 						
 					</ul>
 				</li>

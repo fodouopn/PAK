@@ -10,14 +10,19 @@ if ($_SESSION['poste'] != 'admin') {
 
 
 ?>
-
-
-<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
-    <a href="#"><strong><span class=""></span> Notation</strong></a>
-    <hr>
-    
-    <br>
-    <br>
+ <a href="#"><strong><span class=""></span> Appréciation</strong></a>
+                    <hr>
+                </div>
+                <br>
+                <br>
+             
+<div class="main">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            
+        <strong><span class=""></span> Note</strong>
+                    <hr>
+                
                 
     <?php
 
@@ -31,7 +36,7 @@ $postes = [];
 
 
 // Affichage de la première sélection avec les postes
-echo "<form method='post' action=''>";
+echo "<form method='post' action='' >";
 echo "<label for='poste'>Poste :</label>";
 echo "<select id='poste' name='poste'>";
 
@@ -90,15 +95,16 @@ if (isset($_POST["poste"]) && isset($_POST["rapport"]) && isset($_POST["note"]))
 }
 
 echo "<br>";
-echo "<input type='submit' value='Soumettre
-'>";
+echo "<input type='submit' value='Soumettre'>";
 echo "</form>";
 
 // Fermeture de la connexion
 
 ?>
-
-
-
-    
+               
+                <!-- </div> -->
+            
+        </div>
+    </div>
+</div>
 <?php require_once './footer.php'; ?>

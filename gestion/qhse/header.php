@@ -17,6 +17,7 @@ if (!isset($_SESSION['nom']) || !isset($_SESSION['numero']) || !isset($_SESSION[
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./res/css/font-awesome.css">
     <link href="./res/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="res/css/property_style.css">
 </head>
 
 <body>

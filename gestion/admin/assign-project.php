@@ -76,24 +76,7 @@ if (isset($_POST['submit'])) {
         <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-lg-4" style="margin-left: 100px">
             <div class="card">
                 <div class="card-body">
-                    <?php if (isset($error) && strlen($error) > 1) : ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?php echo $error; ?>
-                        </div>
-                    <?php endif ?>
-
-                    <?php if (isset($msg) && strlen($msg) > 1) : ?>
-                        <div class="alert alert-success" role="alert">
-                            <?php echo $msg; ?>
-                        </div>
-                    <?php endif ?>
-
-                    <?php if (isset($_SESSION['error']) && strlen($_SESSION['error']) > 1) : ?>
-                        <div class="alert alert-danger" role="alert">
-                            <?php echo $_SESSION['error'];
-                            unset($_SESSION['error']) ?>
-                        </div>
-                    <?php endif ?>
+                    
 
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
                         

@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
         $password = $db->real_escape_string($_POST['password']);
         
 
-        $sql = "SELECT * from employe where mail = '$email' and poste = 'chef' or poste ='assistant'";
+        $sql = "SELECT * from employe where mail = '$email' and poste = 'ingenieur des travaux' ";
         $res = $db->query($sql);
         if ($res->num_rows < 1) {
             $error = 'Compte inexistant';

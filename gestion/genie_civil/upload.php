@@ -24,7 +24,7 @@
                               {
                                 
                                   $fileNameNew=uniqid('',true).".".$fileActualExt;
-                                  $fileDestination='files_upload/'.$fileNameNew ;
+                                  $fileDestination='../files_upload/'.$fileNameNew ;
                                   move_uploaded_file($fileTmpName,$fileDestination);
                                   //$query = "INSERT into `utilisateur` (`namefile`, `file_url`) VALUES ('$fileName', '$fileDestination')";
                                   /*

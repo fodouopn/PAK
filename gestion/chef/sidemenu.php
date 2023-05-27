@@ -31,7 +31,7 @@
 				--><li ><a href="./rapport.php">rapport journalier<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				<!--<li ><a href="./engins.php">Engins<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
 				-->
-				-->
+				
 
 				 
 			</ul>

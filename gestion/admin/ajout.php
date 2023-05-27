@@ -33,18 +33,16 @@ echo "<script>window.location.href ='ajout.php'</script>";
 
 ?>
 
-<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
    <span class=""> <a href="./engins.php">Retour/</span> </a>
    <span class=""> <a href=""><strong></span> Ajouter une nouvelle tache</strong></a>
     <hr>
 
 
 </div>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col col-lg-4 col-md-4 col-sm-12 col-xs-12 offset-lg-4" style="margin-left: 100px">
-            <div class="card">
-                <div class="card-body">
+<div class="main">
+    <div class="card col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-top:10px;padding-top:20px">
+        <div class="card-body">
                     
 
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
@@ -74,9 +72,9 @@ echo "<script>window.location.href ='ajout.php'</script>";
 
 
                     </form>
-                </div>
-            </div>
+                
         </div>
+</br></br>
     </div>
 </div>
 
